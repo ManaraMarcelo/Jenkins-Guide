@@ -1,19 +1,27 @@
 pipeline{
     agent any
 
-    stages{
-        stage('Build Docker Image'){
-            steps{
-                sh 'echo "Executando o comando Dokcer Build"'
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    dockerapp = docker.build("manaramarcelo/guia-jenkins:${env.BUILD_ID}",
+                    '-f ./src/Dockerfile ./src')
+                }
             }
         }
-        stage('Push Docker Image'){
-            steps{
-                sh 'echo "Executando o comando Dokcer Push"'
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
+                        dockerapp.push('latest')
+                        dockerapp.push("${env.BUILD_ID}")
+                    }
+                }
             }
         }
-        stage('Deploy no Kubernetes'){
-            steps{
+        stage('Deploy no Kubernetes') {
+            steps {
                 sh 'echo "Executando o comando Kubectl Apply"'
             }
         }
