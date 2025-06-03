@@ -1,0 +1,15 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: minha-app-python-service
+  labels:
+    app: minha-app-python
+spec:
+  selector:
+    app: minha-app-python
+  ports:
+    - protocol: TCP
+      port: 80 # Porta que o Service expõe
+      targetPort: 8000 # Porta do contêiner para onde o tráfego será direcionado
+  type: LoadBalancer # Ou NodePort, dependendo do seu ambiente Kubernetes

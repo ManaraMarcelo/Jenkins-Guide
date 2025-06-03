@@ -1,0 +1,22 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minha-app-python-deployment
+  labels:
+    app: minha-app-python
+spec:
+  replicas: 2 # Número de instâncias da sua aplicação
+  selector:
+    matchLabels:
+      app: minha-app-python
+  template:
+    metadata:
+      labels:
+        app: minha-app-python
+    spec:
+      containers:
+      - name: minha-app-python
+        image: manaramarcelo/guia-jenkins:{{tag}} # <--- ATENÇÃO: Use a tag 'latest' ou a tag da BUILD_ID
+        ports:
+        - containerPort: 8000 # A porta que sua aplicação Flask escuta dentro do contêiner
