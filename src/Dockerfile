@@ -12,7 +12,7 @@ RUN apt-get update && \
 COPY . /app
 
 # Instala as dependências da aplicação (se houver um requirements.txt, por exemplo)
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt --break-system-packages
 
 # Expõe a porta que a aplicação estará escutando (ex: 8000 para uma API)
 EXPOSE 8000
