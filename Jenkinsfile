@@ -29,7 +29,6 @@ pipeline{
                 sh 'kubectl apply -f ./k8s/deployment.yaml'
                 sh 'kubectl apply -f ./k8s/service.yaml'
                 sh 'echo "Aplicação implantada no Kubernetes!"'
-                }
             }
         }
     }
