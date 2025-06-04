@@ -12,4 +12,4 @@ spec:
     - protocol: TCP
       port: 80 # Porta que o Service expõe
       targetPort: 8000 # Porta do contêiner para onde o tráfego será direcionado
-  type: LoadBalancer # Ou NodePort, dependendo do seu ambiente Kubernetes
+  type: NodePort # Ou NodePort, dependendo do seu ambiente Kubernetes
