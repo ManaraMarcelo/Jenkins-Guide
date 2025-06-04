@@ -33,11 +33,11 @@ pipeline{
                 sh 'kubectl apply -f ./k8s/service.yaml'
                 sh 'echo "Aplicação implantada no Kubernetes!"'
 
-                /*withKubeConfig([credentialsId: 'kubeconfig']) {
-                    sh 'sed -i "s/{{tag}}/$tag_version/g" ./k8s/deployment.yaml'
-                    sh 'kubectl apply -f ./k8s/deployment.yaml'
-                    sh 'kubectl apply -f ./k8s/service.yaml'
-                }*/
+                //withKubeConfig([credentialsId: 'kubeconfig']) {
+                //    sh 'sed -i "s/{{tag}}/$tag_version/g" ./k8s/deployment.yaml'
+                //    sh 'kubectl apply -f ./k8s/deployment.yaml'
+                //    sh 'kubectl apply -f ./k8s/service.yaml'
+                //}
             }
         }
     }
