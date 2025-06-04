@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Olá do Flask e do Jenkins!'
+    return 'TESTE EM AULA!'
 
 if __name__ == '__main__':
     # Gunicorn geralmente gerencia a porta em produção, mas para teste local
