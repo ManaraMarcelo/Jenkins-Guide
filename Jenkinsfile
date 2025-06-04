@@ -42,7 +42,7 @@ pipeline{
                         sh 'echo "Aplicação implantada no Kubernetes!"'
 
                         // NOVO: Teste de conectividade direta (para depuração)
-                        sh 'curl -vvv https://127.0.0.1:6443/api/v1' # Teste direto da API do K8s
+                        sh 'curl -vvv https://127.0.0.1:6443/api/v1' 
                     }
                     /*sh 'sed -i "s/{{tag}}/$tag_version/g" ./k8s/deployment.yaml'
                     sh 'kubectl apply -f ./k8s/deployment.yaml'
